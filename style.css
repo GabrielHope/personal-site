@@ -1,44 +1,75 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base layout */
 body {
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.65;
   color: #111;
   background: #fff;
 }
 
+/* Typography */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+  max-width: 65ch;
+  margin-top: 0.75rem;
+  color: #333;
+}
+
+/* Layout containers */
 header,
 main,
 footer {
-  max-width: 800px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 2rem 1rem;
 }
 
+/* Navigation */
 nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 nav a {
   text-decoration: none;
-  color: inherit;
+  font-size: 0.95rem;
+  color: #111;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
-.intro {
+/* Sections */
+section {
   margin-top: 3rem;
 }
 
+.intro {
+  margin-top: 3.5rem;
+}
+
+/* Footer */
 footer {
-  margin-top: 4rem;
-  font-size: 0.875rem;
-  color: #666;
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: #777;
+  text-align: center;
 }
