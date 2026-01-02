@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #ffffff;
+  --text-main: #111111;
+  --text-muted: #777777;
+  --accent: #2563eb; /* calm blue */
+}
+
 /* Base layout */
 body {
   min-height: 100vh;
@@ -13,8 +20,8 @@ body {
 
   font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.65;
-  color: #111;
-  background: #fff;
+  color: var(--text-main);
+  background: var(--bg);
 }
 
 /* Typography */
@@ -44,16 +51,18 @@ footer {
 /* Navigation */
 nav {
   display: flex;
+  justify-content: center;
   gap: 1.75rem;
 }
 
 nav a {
   text-decoration: none;
   font-size: 0.95rem;
-  color: #111;
+  color: var(--text-main);
 }
 
 nav a:hover {
+  color: var(--accent);
   text-decoration: underline;
 }
 
@@ -73,3 +82,17 @@ footer {
   color: #777;
   text-align: center;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115;
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --accent: #60a5fa;
+  }
+
+  p {
+    color: #d1d5db;
+  }
+}
+
