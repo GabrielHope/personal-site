@@ -4,33 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gabriel</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Blog</a>
-      <a href="#">Gallery</a>
-    </nav>
-  </header>
+  <main class="container">
 
-  <main>
-    <section class="intro">
-      <h1>Gabriel</h1>
+    <header class="site-header">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="#">Gallery</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Gabriel's Webpage</h1>
       <p>
-        I’m learning front-end web development and building my personal site.
+        Learning front-end development and building quietly on the internet.
       </p>
     </section>
+
+    <section class="about">
+      <h2>About</h2>
+      <p>
+        This site is a personal space for writing, notes, and small projects.
+        It’s intentionally minimal, focused on clarity and long-form reading.
+      </p>
+    </section>
+
+    <section class="writing">
+      <h2>Writing</h2>
+
+    <ul class="post-list">
+      <li class="post-item">
+        <a href="blog/slow-learning.html">Why I’m learning web development slowly</a>
+        <span>Jan 2026</span>
+      </li>
+
+      <li class="post-item">
+        <a href="blog/minimal-design.html">Notes on minimal design</a>
+        <span>Dec 2025</span>
+      </li>
+    </ul>
+
+    <a class="see-all" href="blog.html">See all posts →</a>
+  </section>
+   
   </main>
 
-  <footer>
-    <p>© 2025 Gabriel</p>
+  <footer class="site-footer">
+    © 2025 Gabriel
   </footer>
+
 
 </body>
 </html>
