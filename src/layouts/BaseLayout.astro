@@ -1,0 +1,30 @@
+---
+import '../styles/global.css';
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrapper">
+      <nav class="nav-inner">
+        <a href="/">Home</a>
+        <a href="/posts">Posts</a>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <slot />
+
+  <footer>
+    © 2026 Gabriel
+  </footer>
+</body>
+</html>

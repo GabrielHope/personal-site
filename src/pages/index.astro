@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog'))
+  .filter(post => !post.data.draft);
+
+const recentPosts = allPosts
+  .sort((a, b) => {
+    const dateA = a.data.pubDate ? a.data.pubDate.valueOf() : 0;
+    const dateB = b.data.pubDate ? b.data.pubDate.valueOf() : 0;
+    return dateB - dateA;
+  })
+  .slice(0, 5);
+---
+
+<BaseLayout title="Gabriel's Webpage">
+  <main class="container">
+    <section class="hero">
+      <h1>Gabriel's Webpage</h1>
+      <p>Learning front-end development and building quietly on the internet.</p>
+    </section>
+
+    <section class="writing">
+      <h2>Recent Posts</h2>
+
+      {recentPosts.length > 0 ? (
+        <ul class="writing-list">
+          {recentPosts.map(post => (
+            <li class="writing-item">
+              <a href={`/posts/${post.id}`}>
+                {post.data.title}
+              </a>
+              {post.data.pubDate ? (
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                </time>
+              ) : (
+                <span class="text-muted">No date</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Writing coming soon…</p>
+      )}
+
+      <p style="text-align: center; margin-top: 2rem;">
+        <a href="/posts" class="see-all">
+          See all posts →
+        </a>
+      </p>
+    </section>
+  </main>
+</BaseLayout>

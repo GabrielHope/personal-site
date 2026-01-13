@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
+  }));
+}
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect('/404');
+}
+
+const post = await getEntry('blog', slug);
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+const rendered = await render(post);
+const { Content } = rendered;
+---
+
+<BaseLayout title={post.data.title}>
+  <main class="container">
+    <article class="page prose">
+      <header class="mb-10">
+        <h1 class="text-4xl font-bold mb-3">{post.data.title}</h1>
+
+        {post.data.pubDate ? (
+          <time datetime={post.data.pubDate.toISOString()} class="text-muted text-sm">
+            {post.data.pubDate.toLocaleDateString('en-US', { dateStyle: 'long' })}
+          </time>
+        ) : (
+          <span class="text-muted text-sm">Date not set</span>
+        )}
+
+        {post.data.description && (
+          <p class="mt-4 text-lg text-muted leading-relaxed">
+            {post.data.description}
+          </p>
+        )}
+      </header>
+
+      <div class="prose prose-invert max-w-none">
+        <Content />
+      </div>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .prose :global(p) {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+  }
+
+  .prose :global(h2) {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose :global(h3) {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose :global(pre) {
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+  }
+</style>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About">
+  <main class="container">
+    <article class="page prose">
+      <header class="hero text-center">
+        <img
+          src="/images/profile.jpg"
+          alt="Gabriel"
+          width="160"
+          height="160"
+          class="rounded-full mx-auto mb-8 object-cover border-4 border-[var(--border-strong)]"
+        />
+        <h1>About</h1>
+      </header>
+
+      <p>Hi, I'm Gabriel — a slow learner trying to build things on the internet in 2026.</p>
+
+      <p>
+        I live in Cebu City, Philippines. I used to think I needed to rush through bootcamps and tutorials
+        to "catch up". Turns out that approach just made me anxious and forgetful.
+      </p>
+
+      <p>
+        So now I'm doing it differently:
+      </p>
+
+      <ul>
+        <li>One tool at a time (currently Astro + vanilla CSS)</li>
+        <li>Writing what I learn instead of just consuming</li>
+        <li>Building in public, even when it's messy</li>
+        <li>No daily streaks, no pressure metrics — just steady curiosity</li>
+      </ul>
+
+      <p>
+        This site is my notebook. It's not meant to be impressive. It's meant to be honest.
+      </p>
+
+      <p>
+        If you're also learning slowly, feel free to stay. You're not behind — you're just on a different rhythm.
+      </p>
+
+      <p class="mt-12 text-center text-[var(--text-muted)]">
+        Say hello → <a href="https://x.com/Enoch" class="text-[var(--accent)] hover:underline">@Enoch</a>
+      </p>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .prose ul {
+    list-style: disc;
+    margin: 1.5rem 0 1.5rem 1.5rem;
+  }
+  .prose li {
+    margin-bottom: 0.75rem;
+  }
+</style>
