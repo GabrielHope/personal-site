@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
+    "@astrojs/rss": "^4.0.14",
     "acorn": "^8.15.0",
     "ansi-align": "^3.0.1",
     "ansi-regex": "^6.2.2",
@@ -97,6 +98,7 @@
     "lru-cache": "^10.4.3",
     "magic-string": "^0.30.21",
     "magicast": "^0.5.1",
+    "markdown-it": "^14.1.0",
     "markdown-table": "^3.0.4",
     "mdast-util-definitions": "^6.0.0",
     "mdast-util-find-and-replace": "^3.0.2",
@@ -185,6 +187,7 @@
     "retext-smartypants": "^6.2.0",
     "retext-stringify": "^4.0.0",
     "rollup": "^4.55.1",
+    "sanitize-html": "^2.17.0",
     "sax": "^1.4.4",
     "semver": "^7.7.3",
     "sharp": "^0.34.5",

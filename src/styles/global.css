@@ -26,15 +26,29 @@
   --transition: 0.15s ease;
 }
 
-/* Light mode */
+html.light {
+  --bg: #f8f9fa;              /* very soft warm gray-white – less stark than #fdfdfd */
+  --text: #2d2d2f;            /* softer dark gray instead of pure black */
+  --text-muted: #6b7280;      /* warmer, more neutral gray */
+  --accent: #1d4ed8;          /* slightly softer blue (Tailwind blue-700-ish) */
+  --border: rgba(0,0,0,0.06); /* even lighter borders */
+  --border-strong: rgba(0,0,0,0.12);
+}
+
+html.light body {
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(0,0,0,0.015) 2%, transparent 2%);
+}
+
+/* Optional: initial system preference fallback (only if no saved choice) */
 @media (prefers-color-scheme: light) {
-  :root {
-    --bg: #fcfcfc;
-    --text: #111114;
-    --text-muted: #60646c;
-    --accent: #2563eb;
-    --border: rgba(0,0,0,0.07);
-    --border-strong: rgba(0,0,0,0.14);
+  :root:not(.light):not(.dark) {
+    --bg: #fdfdfd;
+    --text: #1a1a1e;
+    --text-muted: #5f6368;
+    --accent: #1e40af;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.15);
   }
 }
 
@@ -52,6 +66,9 @@ body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  background-image: 
+  radial-gradient(circle at 25px 25px, rgba(0,0,0,0.02) 2%, transparent 2%);
+  background-size: 50px 50px;
 }
 
 /* Navigation – centered wrapper + right-aligned links */
@@ -80,14 +97,58 @@ body {
   font-size: 0.96rem;
   font-weight: 500;
   letter-spacing: -0.01em;
-  opacity: 0.92;
-  transition: var(--transition);
+  opacity: 0.75;
+  transition: opacity 0.2s ease, filter 0.2 ease;
 }
 
 .nav-inner a:hover,
 .nav-inner a:focus {
-  color: var(--accent);
+    filter: brightness(1.25);
+    opacity: 1;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.25rem;              /* emoji size */
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  margin-left: auto;               /* pushes it to the far right */
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
   opacity: 1;
+  transform: scale(1.15);          /* tiny zoom on hover – nice feedback */
+}
+
+.theme-toggle .hidden {
+  display: none;
+}
+
+/* When light mode is active → show moon, hide sun */
+body.light .theme-toggle .sun-icon {
+  display: none;
+}
+
+body.light .theme-toggle .moon-icon {
+  display: inline;
+}
+
+/* Optional: smooth background transition when toggling */
+html {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* When light mode is active, show moon icon */
+body.light .theme-btn .sun {
+  display: none;
+}
+body.light .theme-btn .moon {
+  display: inline;
 }
 
 /* Content container */
@@ -116,8 +177,8 @@ h1 {
 }
 
 h2 {
-  font-size: 1.7rem;
-  margin: 3rem 0 1rem;
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
 }
 
 /* Paragraphs */
@@ -168,28 +229,56 @@ p {
   text-decoration: none;
   font-weight: 550;
   font-size: 1.15rem;
+  opacity: 0.80;
+  transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
-.writing-item a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+.writing-item a:hover, 
+.writing-item a:focus {
+  opacity: 1;
+  filter: brightness(1.25);
 }
 
 .writing-item time {
-  font-size: 0.94rem;
+  font-size: 0.80rem;
   color: var(--text-muted);
   white-space: nowrap;
 }
 
 /* Footer */
-footer {
+.site-footer {
   margin-top: auto;
   padding: 4rem 2rem 3rem;
   text-align: center;
   font-size: 0.9rem;
   color: var(--text-muted);
-  border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+}
+
+.social-links a {
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--text);
+  transform: scale(1.15);
+}
+
+.social-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* Code */
