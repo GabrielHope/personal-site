@@ -260,5 +260,9 @@
   "bugs": {
     "url": "https://github.com/GabrielHope/personal-site/issues"
   },
-  "homepage": "https://github.com/GabrielHope/personal-site#readme"
+  "homepage": "https://github.com/GabrielHope/personal-site#readme",
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "tailwindcss": "^4.1.18"
+  }
 }
