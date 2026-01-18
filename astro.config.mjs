@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import rss from '@astrojs/rss';
-import tailwind from '@astrojs/tailwind';
+
 
 export default defineConfig(async () => {
   const mdxIntegration = await mdx();
@@ -14,6 +14,6 @@ export default defineConfig(async () => {
     integrations: [
      mdx(),
      rss(),
-     tailwind(),],
+     ],
   };
 });
