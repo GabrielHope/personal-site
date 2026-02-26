@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import profile from '../assets/profile.png'; 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
@@ -17,13 +19,14 @@ const recentPosts = allPosts
 <BaseLayout title="Gabriel's Webpage">
   <main class="container">
     <section class="hero">
-      <img
-        src="/images/profile.png"
+      <Image
+        src={profile}
         alt="Gabriel"
-        width="450"
-        height="450"
         class="profile-img mx-auto mb-6"
-        loading="eager"
+        width={450}
+        height={450}
+        formats={['avif','webp']}
+        sizes="(max-width: 768px) 100vw, 450px"
       />
       <h1>Gabriel's Webpage</h1>
       <p>Hello, web-surfer! I am Gabriel and this is my webpage.</p>
