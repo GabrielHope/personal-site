@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Search">
+  <main class="container">
+    <header class="hero">
+      <h1 class="posts-heading">Search</h1>
+      <p class="text-muted">Find anything across all posts.</p>
+    </header>
+
+    <div id="search" class="search-wrapper"></div>
+  </main>
+</BaseLayout>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    new PagefindUI({
+      element: '#search',
+      showImages: true,
+    });
+  });
+</script>
+
+<style>
+  .search-wrapper {
+    margin: 2rem 0 5rem;
+  }
+
+  /* Blend Pagefind's UI with your site theme */
+  :root {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-text: var(--text);
+    --pagefind-ui-background: var(--bg);
+    --pagefind-ui-border: var(--border-strong);
+    --pagefind-ui-tag: var(--bg);
+    --pagefind-ui-font: var(--font-sans);
+  }
+</style>

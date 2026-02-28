@@ -351,3 +351,32 @@ code {
   background: var(--accent);
   color: white;
 }
+
+/* Pagefind dark mode fix */
+.pagefind-ui__result-title,
+.pagefind-ui__result-excerpt,
+.pagefind-ui__result-link {
+  color: var(--text) !important;
+}
+
+.pagefind-ui__result {
+  border-color: var(--border) !important;
+}
+
+.pagefind-ui__search-input {
+  color: var(--text) !important;
+  background: var(--bg) !important;
+  border-color: var(--border-strong) !important;
+}
+
+.nav-icon-link {
+  display: flex;
+  align-items: center;
+  opacity: 0.75;
+  color: var(--text);
+  transition: opacity 0.2s ease;
+}
+
+.nav-icon-link:hover {
+  opacity: 1;
+}

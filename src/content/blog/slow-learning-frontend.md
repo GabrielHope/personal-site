@@ -1,8 +1,9 @@
 ---
-title: "Slow Learning: Why I'm Taking My Time With Front-End Development"
-pubDate: 2026-01-12
-description: Reflections on learning deliberately instead of rushing through tutorials in 2026.
-tags: ["learning", "frontend", "mindset"]
+title: "My First Post"
+description: "A short summary that shows up as the subtitle in the post list."
+pubDate: 2024-01-03
+author: "Gabriel Hope"
+heroImage: "../../assets/slow-learning.png"
 draft: false
 ---
 
