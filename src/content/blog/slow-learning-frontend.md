@@ -3,7 +3,7 @@ title: "My First Post"
 description: "A short summary that shows up as the subtitle in the post list."
 pubDate: 2024-01-03
 author: "Gabriel Hope"
-heroImage: "../../assets/slow-learning.png"
+heroImage: ../../assets/slow-learning.png
 draft: false
 ---
 

@@ -42,6 +42,9 @@
         "heroImage": {
           "type": "string"
         },
+        "thumbImage": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }
