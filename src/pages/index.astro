@@ -41,7 +41,7 @@ const recentPosts = allPosts
         <ul class="writing-list">
           {recentPosts.map(post => (
             <li class="writing-item">
-              <a href={`/posts/${post.id}`}>
+              <a href={`/posts/${post.slug}`}>
                 {post.data.title}
               </a>
               {post.data.pubDate ? (
