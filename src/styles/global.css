@@ -101,6 +101,11 @@ body {
   transition: opacity 0.2s ease, filter 0.2 ease;
 }
 
+.nav-inner a.active {
+  opacity: 1;
+  filter: brightness(1.25);
+}
+
 .nav-inner a:hover,
 .nav-inner a:focus {
     filter: brightness(1.25);
@@ -158,12 +163,6 @@ body.light .theme-btn .moon {
   padding: 0 2rem;
 }
 
-main .container > * {
-  max-width: var(--reading-width);
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* Headings */
 h1, h2, h3 {
   line-height: 1.2;
@@ -201,7 +200,7 @@ p {
 /* Hero */
 .hero {
   text-align: center;
-  padding: 3rem 0 5rem;
+  padding: 2.5rem 0 0.5rem;
 }
 
 .hero h1 {
@@ -338,7 +337,7 @@ code {
   }
 
   .hero {
-    padding: 5rem 0 3.5rem;
+    padding: 2.5rem 0 0.5rem;
   }
 
   .container {
