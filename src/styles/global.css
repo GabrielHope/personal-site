@@ -161,6 +161,7 @@ body.light .theme-btn .moon {
   max-width: var(--content-max);
   margin: 0 auto;
   padding: 0 2rem;
+  overflow-x: hidden;
 }
 
 /* Headings */
